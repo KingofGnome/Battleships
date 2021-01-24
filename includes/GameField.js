@@ -6,8 +6,9 @@ class GameField {
    * @param  {Number} size Width or height of the symmetrical game field (10
    * is the standard in battleships)
    */
-  constructor (size) {
+  constructor (size, ships) {
     this.size = size;
+    this.ships = ships;
     /**
      * True when the player is ready to play and his game field is valid
      * @type {Boolean}
@@ -302,22 +303,17 @@ class GameField {
    * @return {Array(Object)} Object of the ships to be placed/present
    */
   _getShipsToPlace () {
+    //TODO: get the ship config from config
+    // var config = require('../config');
+    // console.log(this.ships);
     return [
       {
         length: 2,
-        amount: 4
-      },
-      {
-        length: 3,
-        amount: 3
-      },
-      {
-        length: 4,
         amount: 2
       },
       {
-        length: 5,
-        amount: 1
+        length: 3,
+        amount: 2
       }
     ];
   }

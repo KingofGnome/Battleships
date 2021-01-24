@@ -8,17 +8,14 @@ let fs = require('fs');
 let express = require('express');
 let app = express();
 
-let privateKey = fs.readFileSync( 'cert.key' );
-let certificate = fs.readFileSync( 'cert.pem');
+//let privateKey = fs.readFileSync( 'cert.key' );
+//let certificate = fs.readFileSync( 'cert.pem');
 
-let server = https.createServer({
-  key: privateKey,
-  cert: certificate
-}, app);
+let server = app.listen(8000);
+
 
 let io = require('socket.io').listen(server);
 
-server.listen(8000);
 
 app.use(express.static(__dirname + '/public/'));
 

@@ -116,6 +116,7 @@ $(document).ready(function () {
 });
 
 function parseShipMapArray (data) {
+  console.log(data)
   for (var i = 0; i < data.length; i++) {
     if (data[i].isFullyDestroyed) {
       $('.shipMapKey[shipId="' + i + '"]').attr('src', 'img/Ship' + data[i].length + 'Destroyed.png');
@@ -125,18 +126,22 @@ function parseShipMapArray (data) {
   }
 }
 
+
+
 function generateGameFields () {
   $('.gameField').empty();
-  var characters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+  var rowident = ['yo', 'tù', 'èl/ella', 'nosotros/-as', 'vosotros/-a', 'ellos/ellas', 'G', 'H', 'I', 'J'];
+  var coulmnverbs = ['preferir','dormir','ir','poder','querer','pensar', '7', '8' , '9' , '10'];
+  var size = 6;
   var gameFieldHtml = '<table class="margin-auto"><tr><td class="gameFieldHeaderSquare"></td>';
-  for(var i = 1; i <= 10; i++) {
-    gameFieldHtml += '<td class="gameFieldHeaderSquare">' + i + '</td>';
+  for(var i = 0; i < size; i++) {
+    gameFieldHtml += '<td class="gameFieldHeaderSquare">' + coulmnverbs[i] + '</td>';
   }
   gameFieldHtml += '</tr>';
   var squareCount = 0;
-  for(var j = 0; j < 10; j++) {
-    gameFieldHtml += '<tr><td class="gameFieldHeaderSquare">' + characters[j] + '</td>';
-    for(var k = 0; k < 10; k++) {
+  for(var j = 0; j < size; j++) {
+    gameFieldHtml += '<tr><td class="gameFieldHeaderSquare">' + rowident[j] + '</td>';
+    for(var k = 0; k < size; k++) {
       gameFieldHtml += '<td class="gameFieldSquare"><button class="btn fieldButton" squareNumber="' + squareCount + '"></button></td>';
       squareCount++;
     }

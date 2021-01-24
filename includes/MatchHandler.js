@@ -2,6 +2,8 @@
 
 let logger = require('./Logger');
 let GameField = require('./GameField');
+var config = require('../config');
+logger.debug(config.field.size)
 
 class MatchHandler {
   /**
@@ -14,8 +16,8 @@ class MatchHandler {
 
     this.playerOne = playerOne;
     this.playerTwo = '';
-    this.gameFieldOne = new GameField(10);
-    this.gameFieldTwo = new GameField(10);
+    this.gameFieldOne = new GameField(config.field.size, config.ships);
+    this.gameFieldTwo = new GameField(config.field.size, config.ships);
     this.playerWhosMoveItIs = 'none';
     this.playerWhoWon = 'none';
   }
